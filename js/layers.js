@@ -17,28 +17,28 @@ addLayer("dev", {
     clickables: {
         11: {
             display: "+1 gear",
-            canClick() { return keyInput == process.env.DEV_KEY },
+            canClick() { return player[this.layer].keyInput == process.env.DEV_KEY },
             onClick() { 
                 player['g'].points = player['g'].points.add(1) 
             }
         },
         12: {
             display: "+1 processor",
-            canClick() { return keyInput == process.env.DEV_KEY },
+            canClick() { return player[this.layer].keyInput == process.env.DEV_KEY },
             onClick() { 
                 player['pro'].points = player['pro'].points.add(1) 
             }
         },
         13: {
             display: "+1 transformer",
-            canClick() { return keyInput == process.env.DEV_KEY },
+            canClick() { return player[this.layer].keyInput == process.env.DEV_KEY },
             onClick() { 
                 player['trans'].points = player['trans'].points.add(1) 
             }
         },
         14: {
             display: "+1 constructor",
-            canClick() { return keyInput == process.env.DEV_KEY },
+            canClick() { return player[this.layer].keyInput == process.env.DEV_KEY },
             onClick() { 
                 player['con'].points = player['con'].points.add(1) 
             }
