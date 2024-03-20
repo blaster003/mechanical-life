@@ -4,7 +4,8 @@ addLayer("dev", {
     position: 2, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
     startData() { return {
         unlocked: true,
-		points: new Decimal(0),
+	points: new Decimal(0),
+	keyInput: "",
     }},
     color: "#FFFFFF",
     requires: new Decimal(0), // Can be a function that takes requirement increases into account
@@ -16,28 +17,28 @@ addLayer("dev", {
     clickables: {
         11: {
             display: "+1 gear",
-            canClick() { return true },
+            canClick() { return keyInput == process.env.DEV_KEY },
             onClick() { 
                 player['g'].points = player['g'].points.add(1) 
             }
         },
         12: {
             display: "+1 processor",
-            canClick() { return true },
+            canClick() { return keyInput == process.env.DEV_KEY },
             onClick() { 
                 player['pro'].points = player['pro'].points.add(1) 
             }
         },
         13: {
             display: "+1 transformer",
-            canClick() { return true },
+            canClick() { return keyInput == process.env.DEV_KEY },
             onClick() { 
                 player['trans'].points = player['trans'].points.add(1) 
             }
         },
         14: {
             display: "+1 constructor",
-            canClick() { return true },
+            canClick() { return keyInput == process.env.DEV_KEY },
             onClick() { 
                 player['con'].points = player['con'].points.add(1) 
             }
@@ -47,6 +48,8 @@ addLayer("dev", {
         "heading",
         "main-display",
         "resource-display",
+	["display-text", "Dev key"],
+	["text-input", "keyInput"],
         "clickables",
     ],
     gainMult() { // Calculate the multiplier for main currency from bonuses
