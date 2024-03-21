@@ -4,8 +4,8 @@ addLayer("dev", {
     position: 2, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
     startData() { return {
         unlocked: true,
-	points: new Decimal(0),
-	keyInput: "",
+	    points: new Decimal(0),
+	    keyInput: "Enter key",
     }},
     color: "#FFFFFF",
     requires: new Decimal(0), // Can be a function that takes requirement increases into account
@@ -48,8 +48,7 @@ addLayer("dev", {
         "heading",
         "main-display",
         "resource-display",
-	["display-text", "Dev key"],
-	["text-input", "keyInput"],
+	    ["password-input", 'keyInput'],
         "clickables",
     ],
     gainMult() { // Calculate the multiplier for main currency from bonuses
@@ -59,11 +58,12 @@ addLayer("dev", {
     gainExp() { // Calculate the exponent on main currency from bonuses
         return new Decimal(1)
     },
-    row: 9999, // what tha helll
+    row: 'side', // what tha helll
     hotkeys: [
         {key: "i", description: "i: increment", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
     layerShown(){return true},
+    prestigeNotify() { return false },
 })
 
 addLayer("achievements", {
@@ -76,7 +76,7 @@ addLayer("achievements", {
     }},
     color: "#F0F0F)",
     requires: new Decimal(0), // Can be a function that takes requirement increases into account
-    resource: "i", // Name of prestige currency
+    resource: "achievements", // Name of prestige currency
     baseResource: "", // Name of resource prestige is based on
     baseAmount() {return 0}, // Get the current amount of baseResource
     type: "none", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
@@ -88,11 +88,17 @@ addLayer("achievements", {
             done() {
                 return player.points.gte(1)
             },
+            onComplete() {
+                player[this.layer].points = player[this.layer].points.add(1);
+            },
             style: {
                 "width": "120%",
                 "max-height": "60%"
             }
         }
+    },
+    tooltip() {
+        return player[this.layer].points + " achievements"
     },
     tabFormat: [
         "heading",
@@ -159,7 +165,7 @@ addLayer("i", {
     gainExp() { // Calculate the exponent on main currency from bonuses
         return new Decimal(1)
     },
-    row: 9999, // what tha helll
+    row: 'side', // what tha helll
     hotkeys: [
         {key: "i", description: "i: increment", onPress(){
             gain = new Decimal(1)
@@ -186,11 +192,14 @@ addLayer("g", {
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
     exponent: 0.5, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
-        mult = new Decimal(1)
+        mult = new Decimal(player['trans'].points.add(1))
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
         return new Decimal(1)
+    },
+    prestigeButtonText() {
+        return "reset for +" +`<b>${player[this.layer].points}</b>` + " gears turning<br><br> next at " + format(getNextAt(this.layer)) + " materials"
     },
     onPrestige(gain) {
         player[this.layer].points = player[this.layer].points.add(player['trans'].points)

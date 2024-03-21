@@ -573,6 +573,22 @@ function loadVue() {
 		props: ['layer', 'data'],
 		template: `
 			<input class="instant" :id="'input-' + layer + '-' + data" :value="player[layer][data].toString()" v-on:focus="focused(true)" v-on:blur="focused(false)"
+			v-on:change="player[layer][data] = document.getElementById('input-' + layer + '-' + data).value">
+		`
+	})
+
+	Vue.component('password-input', {
+		props: ['layer', 'data'],
+		template: `
+			<input type="password" class="instant" :id="'input-' + layer + '-' + data" :value="player[layer][data].toString()" v-on:focus="focused(true)" v-on:blur="focused(false)"
+			v-on:change="player[layer][data] = document.getElementById('input-' + layer + '-' + data).value">
+		`
+	})
+
+	Vue.component('number-input', {
+		props: ['layer', 'data'],
+		template: `
+			<input class="instant" :id="'input-' + layer + '-' + data" :value="player[layer][data].toString()" v-on:focus="focused(true)" v-on:blur="focused(false)"
 			v-on:change="player[layer][data] = toValue(document.getElementById('input-' + layer + '-' + data).value, player[layer][data])">
 		`
 	})

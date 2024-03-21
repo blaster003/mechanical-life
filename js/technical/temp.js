@@ -33,7 +33,7 @@ function setupTemp() {
 	
 	setupTempData(layers, tmp, funcs)
 	for (layer in layers){
-		tmp[layer].resetGain = {}
+		tmp[layer].resetGain = new Decimal(0)
 		tmp[layer].nextAt = {}
 		tmp[layer].nextAtDisp = {}
 		tmp[layer].canReset = {}
