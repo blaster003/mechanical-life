@@ -9,4 +9,4 @@ You can look in the [documentation](docs/!general-info.md) for more information 
 # mechanical life
 
 This is a mod based on The Modding Tree by Acameda. [This is a link to the game.](https://raw.githack.com/blaster003/mechanical-life/master/index.html)
-Basically the goal is to create life made up of a machine (like an AI).
+Basically the goal is to create life made up of a machine (like an AI). This is unfinished and probably won't be for a while so check back for updates!
