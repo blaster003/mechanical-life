@@ -25,7 +25,7 @@ addLayer("g", {
         player[this.layer].points = player[this.layer].points.add(gain.times(diff).div(5))
     },
     prestigeButtonText() {
-        return "reset for +" +`<b>${player[this.layer].points}</b>` + " gears turning<br><br> next at " + format(getNextAt(this.layer)) + " materials"
+        return "reset for +" +`<b>${formatWhole(player['trans'].points)}</b>` + " gears turning<br><br> next at " + format(getNextAt(this.layer)) + " materials"
     },
     onPrestige(gain) {
         player[this.layer].points = player[this.layer].points.add(player['trans'].points)
