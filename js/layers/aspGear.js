@@ -38,7 +38,7 @@ addLayer("g", {
         "blank",
         ["display-text", function() {
             if (player[this.layer].points.gte(1))
-                return 'your ' + format(player[this.layer].points) + ' gears turning are generating ' + player[this.layer].points / 2 + ' materials per second.'
+                return 'your ' + format(player[this.layer].points) + ' gears turning are generating ' + format(player[this.layer].points / 2) + ' materials per second.'
         }]
 
     ],

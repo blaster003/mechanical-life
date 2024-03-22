@@ -4,7 +4,7 @@ addLayer("for", {
     position: 0, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
     startData() { return {
         unlocked: true,
-		points: new Decimal(100),
+		points: new Decimal(0),
     }},
     branches: ['g', 'trans'],
     color: "#2562A8",
