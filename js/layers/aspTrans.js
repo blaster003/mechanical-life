@@ -1,7 +1,7 @@
 addLayer("trans", {
     name: "transformer", // This is optional, only used in a few places, If absent it just uses the layer id.
     symbol: "<img src='resources/layers/transformer.png' style='width:calc(52.5% - 2px);height:calc(80% - 2px);margin:10%'></img>",
-    position: 0, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
+    position: 1, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
     startData() { return {
         unlocked: true,
 		points: new Decimal(0),
@@ -21,7 +21,7 @@ addLayer("trans", {
         "resource-display",
         "blank",
         ["display-text", function() {
-            if (player[this.layer].points.gte(0))
+            if (player[this.layer].points.gte(1))
                 return 'your ' + format(player[this.layer].points) + ' transformer units are adding onto your gear prestige gain (1 to 1 without upgrades).'
         }]
 

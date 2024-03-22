@@ -20,7 +20,7 @@ addLayer("pro", {
         "resource-display",
         "blank",
         ["display-text", function() {
-            if (player[this.layer].points.gte(0))
+            if (player[this.layer].points.gte(1))
                 return 'your ' + format(player[this.layer].points) + ' processor units are adding onto your increment amount (1 to 1 without upgrades).'
         }]
 

@@ -20,6 +20,10 @@ addLayer("g", {
     gainExp() { // Calculate the exponent on main currency from bonuses
         return new Decimal(1)
     },
+    update(diff) {
+        gain = player['for'].points
+        player[this.layer].points = player[this.layer].points.add(gain.times(diff).div(5))
+    },
     prestigeButtonText() {
         return "reset for +" +`<b>${player[this.layer].points}</b>` + " gears turning<br><br> next at " + format(getNextAt(this.layer)) + " materials"
     },
@@ -33,7 +37,7 @@ addLayer("g", {
         "resource-display",
         "blank",
         ["display-text", function() {
-            if (player[this.layer].points.gte(0))
+            if (player[this.layer].points.gte(1))
                 return 'your ' + format(player[this.layer].points) + ' gears turning are generating ' + player[this.layer].points / 2 + ' materials per second.'
         }]
 
