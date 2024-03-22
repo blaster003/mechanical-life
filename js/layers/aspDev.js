@@ -42,7 +42,14 @@ addLayer("dev", {
             onClick() { 
                 player['con'].points = player['con'].points.add(1) 
             }
-        }
+        },
+        14: {
+            display: "+1 forge",
+            canClick() { return player[this.layer].keyInput == 'second times the charm' },
+            onClick() { 
+                player['for'].points = player['for'].points.add(1) 
+            }
+        },
     },
     tabFormat: [
         "heading",
