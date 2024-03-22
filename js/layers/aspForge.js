@@ -1,13 +1,13 @@
 addLayer("for", {
     name: "forge", // This is optional, only used in a few places, If absent it just uses the layer id.
-    symbol: "<img src='resources/layers/constructor.png' style='width:calc(60% - 2px);height:calc(60% - 2px);margin:10%;padding-top:10%;'></img>",
+    symbol: "<img src='resources/layers/forge.png' style='width:calc(60% - 2px);height:calc(60% - 2px);margin:10%;padding-top:10%;'></img>",
     position: 0, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
     startData() { return {
         unlocked: true,
 		points: new Decimal(0),
     }},
     branches: ['g', 'trans'],
-    color: "#2562A8",
+    color: "#FF9900",
     requires: new Decimal(80), // Can be a function that takes requirement increases into account
     resource: "forges", // Name of prestige currency
     baseResource: "gears turning", // Name of resource prestige is based on
