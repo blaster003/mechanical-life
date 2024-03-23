@@ -7,7 +7,7 @@ let modInfo = {
 		"layers/achievements.js", "layers/aspDev.js", "layers/aspInc.js", 
 		"layers/aspGear.js", "layers/aspPro.js", 
 		"layers/aspForge.js", "layers/aspTrans.js", "layers/aspCon.js", 
-		"tree.js"
+		"tree.js",
 	],
 
 	discordName: "",
