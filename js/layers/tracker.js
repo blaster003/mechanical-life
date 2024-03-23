@@ -1,12 +1,12 @@
-addLayer("achievements", {
-    name: "achievements", // This is optional, only used in a few places, If absent it just uses the layer id.
-    symbol: "ACH", // This appears on the layer's node. Default is the id with the first letter capitalized
+addLayer("tracker", {
+    name: "tracker", // This is optional, only used in a few places, If absent it just uses the layer id.
+    symbol: "TRC", // This appears on the layer's node. Default is the id with the first letter capitalized
     position: 0, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
     startData() { return {
         unlocked: true,
 		points: new Decimal(0),
     }},
-    color: "#F0F0F)",
+    color: "#F0F0F0",
     requires: new Decimal(0), // Can be a function that takes requirement increases into account
     resource: "achievements", // Name of prestige currency
     baseResource: "", // Name of resource prestige is based on
@@ -29,13 +29,32 @@ addLayer("achievements", {
             }
         }
     },
+    milestones: {
+        0: {
+            requirementDescription: "1 forge, 1 transformer and 1 constructor",
+            effectDescription: "unlocks the next row",
+            done() { 
+                return player['for'].points.gte(1) && player['trans'].points.gte(1) && player['con'].points.gte(1)
+            },
+        }
+    },
     tooltip() {
         return player[this.layer].points + " achievements"
     },
-    tabFormat: [
-        "heading",
-        "achievements"
-    ],
+    tabFormat: {
+        "achievements": {
+            content: [
+                "heading",
+                "achievements"
+            ]
+        },
+        "milestones": {
+            content: [
+                "heading",
+                "milestones"
+            ]
+        },
+    },
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
         return mult

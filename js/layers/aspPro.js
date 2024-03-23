@@ -36,7 +36,7 @@ addLayer("pro", {
         gain = player['con'].points
         player[this.layer].points = player[this.layer].points.add(gain.times(diff).div(5))
     },
-    row: 1, // Row the layer is in on the tree (0 is the first row)
+    row: 0, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
         {key: "p", description: "p: construct a processor", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],

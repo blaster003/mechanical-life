@@ -43,7 +43,7 @@ addLayer("g", {
         }]
 
     ],
-    row: 1, // Row the layer is in on the tree (0 is the first row)
+    row: 0, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
         {key: "g", description: "g: construct a gear", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],

@@ -4,9 +4,10 @@ let modInfo = {
 	author: "blaster003",
 	pointsName: "materials",
 	modFiles: [
-		"layers/achievements.js", "layers/aspDev.js", "layers/aspInc.js", 
+		"layers/tracker.js", "layers/aspDev.js", "layers/aspInc.js", 
 		"layers/aspGear.js", "layers/aspPro.js", 
 		"layers/aspForge.js", "layers/aspTrans.js", "layers/aspCon.js", 
+		"layers/aspMotor.js",
 		"tree.js",
 	],
 
@@ -47,7 +48,7 @@ function getPointGen() {
 		return new Decimal(0)
 
 	let gain = new Decimal(0) // gear
-	gain = gain.add(player["g"].points / 2)
+	gain = gain.add(player["g"].points / 2).mul(player['motor'].effect())
 	return gain
 }
 

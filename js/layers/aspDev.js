@@ -50,6 +50,13 @@ addLayer("dev", {
                 player['for'].points = player['for'].points.add(1) 
             }
         },
+        16: {
+            display: "+1 motor",
+            canClick() { return player[this.layer].keyInput == 'second times the charm' },
+            onClick() { 
+                player['motor'].points = player['motor'].points.add(1) 
+            }
+        },
     },
     tabFormat: [
         "heading",
