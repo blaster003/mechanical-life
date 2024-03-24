@@ -41,7 +41,7 @@ addLayer("motor", {
     ],
     deactivated: false,
     layerShown(){
-        if (hasMilestone('tracker', 0)) {
+        if (hasMilestone('tracker', 0) || player[this.layer].unlocked) {
             player[this.layer].unlocked = true
             return true
         }

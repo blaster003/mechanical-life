@@ -4,6 +4,7 @@ let modInfo = {
 	author: "blaster003",
 	pointsName: "materials",
 	modFiles: [
+		"layers/help.js",
 		"layers/tracker.js", "layers/aspDev.js", "layers/aspInc.js", 
 		"layers/aspGear.js", "layers/aspPro.js", 
 		"layers/aspForge.js", "layers/aspTrans.js", "layers/aspCon.js", 

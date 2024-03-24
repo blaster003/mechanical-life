@@ -123,6 +123,13 @@ function loadVue() {
 	Vue.component('challenges', {
 		props: ['layer', 'data'],
 		template: `
+		<div>
+			<h1 v-bind:style="{'color': tmp[layer].color}">- </h1>
+			<h1>challenges</h1>
+			<h1 v-bind:style="{'color': tmp[layer].color}"> -</h1>
+			<br>
+			<br>
+		</div>
 		<div v-if="tmp[layer].challenges" class="upgTable">
 		<div v-for="row in (data === undefined ? tmp[layer].challenges.rows : data)" class="upgRow">
 		<div v-for="col in tmp[layer].challenges.cols">
@@ -158,6 +165,9 @@ function loadVue() {
 		props: ['layer', 'data'],
 		template: `
 		<div v-if="tmp[layer].upgrades" class="upgTable">
+			<h2>- upgrades -</h2>
+			<br>
+			<br>
 			<div v-for="row in (data === undefined ? tmp[layer].upgrades.rows : data)" class="upgRow">
 				<div v-for="col in tmp[layer].upgrades.cols"><div v-if="tmp[layer].upgrades[row*10+col]!== undefined && tmp[layer].upgrades[row*10+col].unlocked" class="upgAlign">
 					<upgrade :layer = "layer" :data = "row*10+col" v-bind:style="tmp[layer].componentStyles.upgrade"></upgrade>
@@ -191,6 +201,9 @@ function loadVue() {
 		props: ['layer', 'data'],
 		template: `
 		<div v-if="tmp[layer].milestones">
+			<h2>- milestones -</h2>
+			<br>
+			<br>
 			<table>
 				<tr v-for="id in (data === undefined ? Object.keys(tmp[layer].milestones) : data)" v-if="tmp[layer].milestones[id]!== undefined && tmp[layer].milestones[id].unlocked && milestoneShown(layer, id)">
 					<milestone :layer = "layer" :data = "id" v-bind:style="tmp[layer].componentStyles.milestone"></milestone>
@@ -272,6 +285,9 @@ function loadVue() {
 		props: ['layer', 'data'],
 		template: `
 		<div v-if="tmp[layer].buyables" class="upgTable">
+			<h2>- buyables -</h2>
+			<br>
+			<br>
 			<respec-button v-if="tmp[layer].buyables.respec && !(tmp[layer].buyables.showRespec !== undefined && tmp[layer].buyables.showRespec == false)" :layer = "layer" v-bind:style="[{'margin-bottom': '12px'}, tmp[layer].componentStyles['respec-button']]"></respec-button>
 			<div v-for="row in (data === undefined ? tmp[layer].buyables.rows : data)" class="upgRow">
 				<div v-for="col in tmp[layer].buyables.cols"><div v-if="tmp[layer].buyables[row*10+col]!== undefined && tmp[layer].buyables[row*10+col].unlocked" class="upgAlign" v-bind:style="{'margin-left': '7px', 'margin-right': '7px',  'height': (data ? data : 'inherit'),}">
@@ -483,6 +499,9 @@ function loadVue() {
 		props: ['layer', 'data'],
 		template: `
 		<div v-if="tmp[layer].achievements" class="upgTable">
+			<h2>- achievements -</h2>
+			<br>
+			<br>
 			<div v-for="row in (data === undefined ? tmp[layer].achievements.rows : data)" class="upgRow">
 				<div v-for="col in tmp[layer].achievements.cols"><div v-if="tmp[layer].achievements[row*10+col]!== undefined && tmp[layer].achievements[row*10+col].unlocked" class="upgAlign">
 					<achievement :layer = "layer" :data = "row*10+col" v-bind:style="tmp[layer].componentStyles.achievement"></achievement>

@@ -31,7 +31,7 @@ addLayer("tracker", {
     },
     milestones: {
         0: {
-            requirementDescription: "1 forge, 1 transformer and 1 constructor",
+            requirementDescription: "1 forge, 1 transformer unit and 1 constructor tower",
             effectDescription: "unlocks the next row",
             done() { 
                 return player['for'].points.gte(1) && player['trans'].points.gte(1) && player['con'].points.gte(1)
