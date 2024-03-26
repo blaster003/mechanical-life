@@ -1,3 +1,5 @@
+This game has been put on hold for now, as I keep switching over to new projects for some reason. So now I'm going to work on another similar game, and hopefully I'll continue on this after.
+
 # The-Modding-Tree
 
 An incremental game engine based on The Prestige Tree. It still requires programming knowledge, but it's mostly pretty easy things and copy/pasting.
